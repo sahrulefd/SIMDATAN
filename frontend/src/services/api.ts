@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // Dynamically use local served Laravel instance or custom config
-const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/v1';
+export const API_URL = import.meta.env.VITE_API_URL || 'https://simdatan-production.up.railway.app/api/v1';
+export const BASE_URL = API_URL.replace('/api/v1', '');
 
 const api = axios.create({
   baseURL: API_URL,

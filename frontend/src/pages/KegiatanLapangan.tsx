@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../services/api';
+import api, { BASE_URL } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { Plus, Search, Edit3, Trash2, X, ClipboardList, Calendar, User, Eye } from 'lucide-react';
 
@@ -198,7 +198,7 @@ export const KegiatanLapangan: React.FC = () => {
             <div>
               {item.foto_path ? (
                 <div className="h-44 overflow-hidden relative">
-                  <img src={`http://127.0.0.1:8000${item.foto_path}`} alt={item.judul} className="w-full h-full object-cover" />
+                  <img src={`${BASE_URL}${item.foto_path}`} alt={item.judul} className="w-full h-full object-cover" />
                   <div className="absolute top-3 left-3">{renderBadge(item.tipe_kegiatan)}</div>
                 </div>
               ) : (
@@ -332,7 +332,7 @@ export const KegiatanLapangan: React.FC = () => {
             <div className="space-y-4">
               {selectedItem.foto_path && (
                 <div className="rounded-lg overflow-hidden h-56">
-                  <img src={`http://127.0.0.1:8000${selectedItem.foto_path}`} alt={selectedItem.judul} className="w-full h-full object-cover" />
+                  <img src={`${BASE_URL}${selectedItem.foto_path}`} alt={selectedItem.judul} className="w-full h-full object-cover" />
                 </div>
               )}
 

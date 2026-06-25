@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../services/api';
+import api, { API_URL } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { Plus, Search, Trash2, X, FileText, Download, FileArchive, ImageIcon, FileSpreadsheet } from 'lucide-react';
 
@@ -94,7 +94,7 @@ export const Dokumen: React.FC = () => {
     try {
       // Direct window redirect to download endpoint to force download stream
       const token = localStorage.getItem('access_token');
-      window.open(`http://127.0.0.1:8000/api/v1/dokumen/${item.id}/download?token=${token}`, '_blank');
+      window.open(`${API_URL}/dokumen/${item.id}/download?token=${token}`, '_blank');
     } catch (err) {
       console.error(err);
     }
